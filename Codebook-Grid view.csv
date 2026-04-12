@@ -1,0 +1,204 @@
+﻿Name of the reporter that wrote the news Item about the terror attack,Writer
+Date of the terrorist attack,Date
+Head line of the news Item describing the event,Headline
+Page Number,Page of the news Item
+The Time in which the event took place,Time
+"List of 16 regions in Israel (including the territories) - 
+1. צפון
+2. איזור חיפה
+3. השרון והמשולש
+4. גוש דן
+5. איזור ירושלים
+6. ים המלח והערבה
+7. נגב
+8. איזור אילת
+9. יהודה ושומרון
+10. עמק הירדן
+11. שדרות
+12. דרום",Region were the attack occurred
+Yes/No,Attack was in the territories?
+Yes/No,Attack was near border Line?
+"Sunny
+
+Raining
+
+Fog
+
+Heat Wave
+
+Partly cloudy
+
+Hazy
+
+Snowing",Weather in time of the Attack
+"Shore
+
+Mountains
+
+Flat
+
+Desert",Topography of the region were the attack took place
+"1. Sea
+2. Air
+3. Ground",Zone of attack
+"Intercity road
+
+Inner-city road
+
+Road
+
+Trail
+
+The attack was not in traffic area",Traffic
+,The duration of the attack
+"Free Hands
+
+knife
+
+Axe
+
+Hammer 
+
+Stoning
+
+Over Ride
+
+Car Bomb
+
+Car Bomb – suicide attack.
+
+Shooting
+
+Artillery 
+
+Suicide Bomber
+
+Remote control bomb
+
+Kidnapping.
+
+setting fire.
+
+
+ 
+...",Weapon (Tactic)
+Yes/No,The attack include Hostage taking and Bargaining
+Name of the terrorist,Terrorist Name
+Men/Women,Terrorist Gender
+Age,Terrorist Age
+"Jew
+
+Christian 
+
+Moslem
+
+Atheist/ No Religion Known",Terrorist religion
+List of 16 regions in Israel (including the territories),Place of birth of the terrorist
+List of 16 regions in Israel (including the territories),The Terrorist Living in -
+"Elementary 
+
+High School
+
+Partly Academic
+
+Academic",Terrorist Level of education
+"Secular
+
+Religious",Terrorist type of Education
+"Al Fatah
+
+Hamas
+
+PIG
+
+PFLP
+
+PFLP-GC
+
+DFLP
+
+Tanzim
+
+Al-Uqza Battalions
+
+Independents 
+
+…",Terrorist Political Orientation
+Yes/No,The Terrorist was caught after the attack
+"healthy
+
+slight injury
+
+medium injury
+
+seriously injured
+
+Fatal injuries
+
+Dead",Terrorist health after the attack
+Yes/No,Was it the terrorist first experience in Violent activity
+,No. of terrorist that participated in the attack
+,No. of victims
+,No. of victims injured
+,No. of Fatalities
+,Name of victim
+,Age of the victim
+,Gender of victim
+,How many years is Living in Israel?
+,State of origin?
+,Victim religion
+,Victim marital status
+,Profession of the victim
+"Elementary
+
+High School
+
+Partly Academic
+
+Academic",Victim level of education
+"healthy
+
+slight injury
+
+medium injury
+
+seriously injured
+
+Fatal injuries
+
+Dead",Victim health
+,
+"Citizens in urban area bus station
+
+Citizens in open area
+
+infrastructure
+
+embassy/council
+
+kidnapping
+
+airplane/ship
+
+airport
+
+school/university
+
+religious institute
+
+V.I.P
+
+bus/train
+
+military\police target
+
+entertainment region
+
+open shopping area
+
+closed shopping area
+
+private vehicle",Nature of Target
+,State Response
+,Political response
+,Declarative response
