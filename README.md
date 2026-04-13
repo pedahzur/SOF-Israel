@@ -132,7 +132,7 @@ If you use these data in academic work, please cite the repository and the assoc
 ## Author
 
 **Ami Pedahzur**
-University of Texas at Austin
+University of Haifa
 
 ---
 
