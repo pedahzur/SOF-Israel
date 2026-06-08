@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="640" font-family="Helvetica,Arial,sans-serif">
+<rect width="780" height="640" fill="white"/>
+<line x1="80.0" y1="299.13043478260875" x2="700.0" y2="299.13043478260875" stroke="#ccc"/>
+<line x1="336.55172413793105" y1="560.0" x2="336.55172413793105" y2="80.0" stroke="#ccc"/>
+<text x="706" y="293.13043478260875" font-size="12" fill="#888">Axis 1 (35%)</text>
+<text x="342.55172413793105" y="68" font-size="12" fill="#888">Axis 2 (30%)</text>
+<text x="80" y="30" font-size="15" font-weight="bold" fill="#222">MCA of 66 SOF definitions — definitional elements, with period and region overlaid</text>
+<rect x="651.2413793103449" y="458.0" width="12" height="12" fill="#1f4e79"/>
+<text x="667.2413793103449" y="468.0" font-size="13" font-weight="bold" fill="#1f4e79">Designation</text>
+<rect x="230.0689655172414" y="395.3913043478261" width="12" height="12" fill="#1f4e79"/>
+<text x="246.0689655172414" y="405.3913043478261" font-size="13" font-weight="bold" fill="#1f4e79">Organization</text>
+<rect x="118.89655172413794" y="366.17391304347825" width="12" height="12" fill="#1f4e79"/>
+<text x="134.89655172413794" y="376.17391304347825" font-size="13" font-weight="bold" fill="#1f4e79">Operators</text>
+<rect x="334.82758620689657" y="122.00000000000003" width="12" height="12" fill="#1f4e79"/>
+<text x="350.82758620689657" y="132.00000000000003" font-size="13" font-weight="bold" fill="#1f4e79">Role & Function</text>
+<polyline points="349.3793103448276,317.9130434782609 362.2068965517241,307.47826086956525 300.2068965517242,303.304347826087 319.44827586206895,261.5652173913044" fill="none" stroke="#c55a11" stroke-width="2"/>
+<circle cx="349.3793103448276" cy="317.9130434782609" r="5" fill="#c55a11"/>
+<text x="356.3793103448276" y="333.9130434782609" font-size="11" fill="#c55a11">pre-1990</text>
+<circle cx="362.2068965517241" cy="307.47826086956525" r="5" fill="#c55a11"/>
+<text x="369.2068965517241" y="323.47826086956525" font-size="11" fill="#c55a11">1990s</text>
+<circle cx="300.2068965517242" cy="303.304347826087" r="5" fill="#c55a11"/>
+<text x="307.2068965517242" y="319.304347826087" font-size="11" fill="#c55a11">2000s</text>
+<circle cx="319.44827586206895" cy="261.5652173913044" r="5" fill="#c55a11"/>
+<text x="326.44827586206895" y="277.5652173913044" font-size="11" fill="#c55a11">2010s+</text>
+<circle cx="360.0689655172414" cy="303.304347826087" r="7" fill="#2e7d32"/>
+<text x="369.0689655172414" y="296.304347826087" font-size="12" font-weight="bold" fill="#2e7d32">US</text>
+<circle cx="293.7931034482759" cy="297.0434782608696" r="7" fill="#2e7d32"/>
+<text x="302.7931034482759" y="290.0434782608696" font-size="12" font-weight="bold" fill="#2e7d32">non-US</text>
+<rect x="80" y="568" width="12" height="12" fill="#1f4e79"/><text x="98" y="579" font-size="12">definitional element (presence)</text>
+<circle cx="86" cy="594" r="5" fill="#c55a11"/><text x="98" y="598" font-size="12">period centroid (orange path = temporal drift)</text>
+<circle cx="86" cy="612" r="6" fill="#2e7d32"/><text x="98" y="616" font-size="12">region centroid (supplementary)</text>
+</svg>
