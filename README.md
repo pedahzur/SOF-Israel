@@ -1,3 +1,6 @@
+> **[Browse the Data Archive →](https://pedahzur.github.io/SOF-APPENDIX/)**
+> Interactive landing page with methodology, variables, and suggested analyses for each dataset.
+
 # SOF-APPENDIX
 
 Data appendix for the study of Israeli Special Operations Forces (SOF). This repository contains structured datasets supporting research on the organizational history, operations, personnel, and evolution of Israeli special operations and elite military units from the pre-state era through the modern IDF.
