@@ -1,0 +1,8 @@
+# Copyrighted full texts — never publish
+pdf_uploads/
+
+# Temp / working artifacts
+data/upload_parts/
+*.b64
+*_backup.md
+.DS_Store
