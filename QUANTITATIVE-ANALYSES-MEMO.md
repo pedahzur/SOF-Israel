@@ -97,7 +97,7 @@ This is the axis on which I rate confidence below.
 
 ## 7. Open verification tasks (before any of this is print-ready)
 
-- **B:** analysis run (`longevity_analysis.py`). Remaining: confirm `Entrepreneur` and `Fate` were coded independently (guard against circularity) and report coder reliability.
+- **B:** analysis run (`longevity_analysis.py`). **Full-N extension attempted and blocked:** `Units_March_2026_1_all.csv` has `Fate` for only ~10/233 rows in an inconsistent vocabulary, and `UNITSN_194.csv` has a founder field at 38% coverage — so the test cannot extend beyond the curated N=90 without a coding pass. Remaining work, now specified in `CODING-PROTOCOL.md`: (1) code `Entrepreneur` and `Fate` **independently** on `units_coding_template.csv` (219 units) to remove circularity; (2) re-check the five headline units blind; (3) re-run the Fisher test at full N and report Cohen's κ.
 - **F:** close the `#verify` boundary calls (which units count; the Oct-8 cutoff).
 - **C:** confirm unit founding years; ratify the catalyst-vs-descent edges.
 - **D:** confirm tie directions and the handful of first-name-only endpoints; decide one PageRank convention (in-link PageRank ranks Sadeh first).
