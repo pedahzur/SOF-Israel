@@ -84,6 +84,8 @@ This is the axis on which I rate confidence below.
 
    The five expanded units are **Shayetet 13, Unit 101, Sayeret Matkal, Shaldag, Maglan** — the spine of the book. So the data do **not** support "entrepreneurs make units last," but they strongly support a better claim: **organizational *expansion* is exclusive to entrepreneur-led units**, and **professionalization predicts survival**. Entrepreneurs are the necessary condition for a unit to grow into an institution or seed successors, not for mere endurance. This is a more precise and more defensible H5 than the original.
 
+   > **Reconciled 2026-07-01.** The Round-4 survival model (log-rank p=0.086) and this longevity test (KW p=0.24) were thought to conflict; they do not — both are non-significant on *duration*, and the robust finding is *expansion*, not survival time. Full write-up + reproduced numbers: `ENTREPRENEUR-FINDING-RECONCILIATION.md`.
+
    *Confidence: medium-high that this belongs in the book — but conditional on one fix (below).* **Critical caveat:** the `Entrepreneur` and `Fate` codings are both the author's; if a unit was coded "transformative" *because* it expanded, the test is circular. Before printing, confirm the two variables were coded independently (ideally blind), and report inter-coder reliability on `Entrepreneur`. With independent coding, the p=0.00001 result is the strongest quantitative finding in the book; without it, it is a tautology. Also note small entrepreneur N (2 transformative, 9 founder) and 2015 right-censoring (standardized longevity = survived fraction of the founding-to-2015 window).
 
 **Tier 3 — one exhibit, with a stated caveat.**
