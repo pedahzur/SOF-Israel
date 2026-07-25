@@ -14,10 +14,10 @@
     .replace(/"/g, "&quot;");
   /* Hebrew runs (e.g. שב״כ) wrapped in <span lang="he"> so the CSS
      italic guard (:lang(he)) applies; works on already-escaped HTML. */
-  const escHe = s => esc(s).replace(/[֐-׿]+/g, m => `<span lang="he">${m}</span>`);
+  const escHe = s => esc(s).replace(/[\\u0590-\\u05FF]+/g, m => `<span lang="he">${m}</span>`);
   /* textContent variant: appends text nodes + <span lang="he"> elements */
   function appendMixedLang(parent, text) {
-    const re = /[֐-׿]+/g;
+    const re = /[\\u0590-\\u05FF]+/g;
     let last = 0, m;
     while ((m = re.exec(text))) {
       if (m.index > last) parent.appendChild(document.createTextNode(text.slice(last, m.index)));
