@@ -2,349 +2,102 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SOF-APPENDIX Data Archive</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#1a1a2e;--bg:#fafaf8;--card:#fff;--accent:#2d5a8e;--border:#ddd;--radius:6px}
-body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;padding:0}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.skip-link{position:absolute;top:-40px;left:0;background:var(--accent);color:#fff;padding:8px;z-index:100}
-.skip-link:focus{top:0}
-header{background:var(--ink);color:#fff;padding:2rem 1.5rem;text-align:center}
-header h1{font-family:Georgia,Charter,serif;font-size:1.8rem;margin-bottom:.3rem}
-header p{opacity:.85;font-size:.95rem}
-.layout{display:flex;max-width:1200px;margin:0 auto;padding:1rem}
-nav#toc{width:220px;position:sticky;top:1rem;align-self:flex-start;max-height:90vh;overflow-y:auto;padding-right:1rem;font-size:.82rem;border-right:1px solid var(--border)}
-nav#toc h3{margin-bottom:.5rem;font-size:.9rem}
-nav#toc a{display:block;padding:2px 0;color:var(--ink);opacity:.7}
-nav#toc a:hover,nav#toc a.active{opacity:1;color:var(--accent)}
-main{flex:1;padding:0 1.5rem;min-width:0}
-section{margin-bottom:2rem}
-section h2{font-family:Georgia,Charter,serif;font-size:1.4rem;border-bottom:2px solid var(--accent);padding-bottom:.3rem;margin-bottom:1rem}
-#filters{margin:1rem 0;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
-#filters input{padding:.4rem .8rem;border:1px solid var(--border);border-radius:var(--radius);font-size:.9rem;width:220px}
-.chip{padding:.3rem .7rem;border-radius:20px;border:1px solid var(--border);cursor:pointer;font-size:.8rem;background:var(--card)}
-.chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-article.dataset{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:1rem;overflow:hidden}
-article.dataset summary{padding:.8rem 1rem;cursor:pointer;font-weight:600;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
-article.dataset summary:hover{background:#f5f5f5}
-.badge{font-size:.7rem;padding:2px 6px;border-radius:3px;font-weight:400;text-transform:uppercase}
-.badge-csv{background:#e8f5e9;color:#2e7d32}
-.badge-xlsx{background:#e3f2fd;color:#1565c0}
-.badge-pdf{background:#fce4ec;color:#c62828}
-.badge-docx{background:#f3e5f5;color:#6a1b9a}
-.meta{font-size:.78rem;opacity:.7;font-weight:400}
-article.dataset .body{padding:1rem}
-article.dataset .body h4{font-size:.9rem;margin:1rem 0 .3rem;color:var(--accent)}
-article.dataset .body p,article.dataset .body ul{font-size:.88rem;margin-bottom:.5rem}
-article.dataset .body ul{padding-left:1.2rem}
-article.dataset .body code{background:#f0f0f0;padding:1px 4px;border-radius:3px;font-size:.82rem}
-article.dataset .body pre{background:#f5f5f5;padding:.6rem;border-radius:4px;overflow-x:auto;font-size:.8rem;margin:.5rem 0}
-.dl-btn{display:inline-block;margin-top:.5rem;padding:.3rem .8rem;background:var(--accent);color:#fff;border-radius:var(--radius);font-size:.82rem}
-.dl-btn:hover{opacity:.85;text-decoration:none}
-footer{text-align:center;padding:2rem;font-size:.82rem;opacity:.7;border-top:1px solid var(--border)}
-@media(max-width:900px){.layout{flex-direction:column}nav#toc{width:100%;position:static;border-right:none;border-bottom:1px solid var(--border);padding-bottom:1rem;margin-bottom:1rem;max-height:none}}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOF-APPENDIX — Data Archive · Israeli Special Operations Forces Research</title>
+<meta name="description" content="Public data archive for the study of Israeli special operations forces, terrorism, and military operations, 1920–2026. Ami Pedahzur, University of Haifa.">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to content</a>
-<header>
-<h1>SOF-APPENDIX &mdash; Data Archive</h1>
-<p>Israeli Special Operations Forces, Terrorism &amp; Conflict Datasets</p>
-<p style="margin-top:.5rem;font-size:.85rem">Ami Pedahzur &middot; University of Haifa &middot; <a href="https://github.com/pedahzur/SOF-APPENDIX" style="color:#adf">GitHub Repo</a></p>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead" role="banner">
+  <p class="mast-kicker">University of Haifa · Data Appendix</p>
+  <h1 class="mast-title">SOF-APPENDIX — a data archive of Israeli special operations forces</h1>
+  <p class="mast-dek">Structured datasets on units, individuals, operations, terrorism, and conflict — from the British Mandate era to the present day — curated for replication and secondary analysis.</p>
+  <p class="mast-byline">Ami Pedahzur · University of Haifa · <a href="https://github.com/pedahzur/SOF-APPENDIX">GitHub repository</a></p>
+  <div class="mast-stats" id="mast-stats" aria-label="Archive summary statistics"></div>
 </header>
+
+<div class="wide xl hero-band">
+  <div id="constellation-chart" class="chart-frame"></div>
+</div>
+
 <div class="layout">
-<nav id="toc"><h3>Datasets</h3></nav>
-<main id="main">
+  <nav id="toc" aria-label="Dataset register contents"></nav>
 
-<section id="about">
-<h2>About the Archive</h2>
-<p>This repository contains structured datasets supporting research on Israeli special operations forces, terrorism, and military operations from the British Mandate era (1920) through the present day. All data were originally curated in Airtable and exported for archival and replication. Files are UTF-8 encoded; some contain Hebrew text.</p>
-</section>
+  <main id="main">
 
-<section id="usage">
-<h2>Quick Start</h2>
-<pre>import pandas as pd
+    <section id="about" aria-labelledby="about-h">
+      <p class="sec-no">§1 · About</p>
+      <h2 id="about-h">About the archive</h2>
+      <p>This repository contains structured datasets supporting research on Israeli special operations forces, terrorism, and military operations from the British Mandate era (1920) through the present day. All data were originally curated in Airtable and exported for archival and replication. Files are UTF-8 encoded; some contain Hebrew text.</p>
+      <p class="dek">The register below is the archive's living document: each entry records what the file contains, how it was coded, and how it can be analyzed.</p>
+    </section>
+
+    <section id="usage" aria-labelledby="usage-h">
+      <p class="sec-no">§2 · Quick Start</p>
+      <h2 id="usage-h">Quick start</h2>
+      <div class="qs-grid">
+        <div class="qs-block">
+          <p class="qs-tag">Python · pandas</p>
+          <pre>import pandas as pd
 units = pd.read_csv("Units_March_2026_1_all.csv")
 losses = pd.read_csv("IAF_1973_Losses.csv")</pre>
-<pre># R
-units &lt;- read.csv("Units_March_2026_1_all.csv", fileEncoding="UTF-8")</pre>
-</section>
+        </div>
+        <div class="qs-block">
+          <p class="qs-tag">R</p>
+          <pre>units &lt;- read.csv("Units_March_2026_1_all.csv",
+  fileEncoding = "UTF-8")</pre>
+        </div>
+      </div>
+    </section>
 
-<div id="filters">
-<input type="text" id="search" placeholder="Search datasets..." aria-label="Search datasets">
+    <section id="readings" aria-labelledby="readings-h">
+      <p class="sec-no">§3 · Readings from the register</p>
+      <h2 id="readings-h">Readings from the register</h2>
+      <p class="dek">Three views computed in your browser from the archive's own CSV files — nothing is pre-baked; the numbers below are parsed from the data at load.</p>
+      <div class="wide" style="margin:18px 0"><div id="units-decades-chart" class="chart-frame"></div></div>
+      <div class="wide" style="margin:18px 0"><div id="reprisals-year-chart" class="chart-frame"></div></div>
+      <div class="wide" style="margin:18px 0"><div id="iaf-losses-chart" class="chart-frame"></div></div>
+    </section>
+
+    <section id="register" aria-labelledby="register-h">
+      <p class="sec-no">§4 · The Register</p>
+      <h2 id="register-h">The register</h2>
+      <div id="filters" role="search"></div>
+      <div id="datasets"></div>
+      <div id="companion-note"></div>
+    </section>
+
+    <section id="linkages" aria-labelledby="linkages-h">
+      <p class="sec-no">§5 · Cross-Dataset Linkages</p>
+      <h2 id="linkages-h">Cross-dataset linkages</h2>
+      <p class="dek">The files are designed to be joined: documented joins are drawn as arcs on the coverage map above and restated here.</p>
+      <div id="linkage-list"></div>
+    </section>
+
+    <section id="citation" aria-labelledby="citation-h">
+      <p class="sec-no">§6 · Citation &amp; Permissions</p>
+      <h2 id="citation-h">Citation</h2>
+      <p>If you use these data in academic work, please cite the repository and the associated publication. Contact the author regarding permissions for use and redistribution.</p>
+      <div class="note-box">
+        <p><b>Suggested citation.</b> Pedahzur, Ami. <i>SOF-APPENDIX: Data archive for the study of Israeli special operations forces, terrorism, and conflict</i>. University of Haifa. Published via GitHub Pages.</p>
+      </div>
+    </section>
+
+  </main>
 </div>
 
-<div id="datasets"></div>
+<footer class="colophon">
+  <p>© Ami Pedahzur, University of Haifa · Published via GitHub Pages · Data files reside in this repository; all links are relative paths.<br>
+  Zero-build static site · vanilla JS · ET Book (embedded) · no external requests beyond this repository.</p>
+</footer>
 
-<section id="linkages">
-<h2>Cross-Dataset Linkages</h2>
-<p><strong>Units &harr; Individuals</strong>: Join via unit-affiliation fields (unit name appears in both individuals_glossary and Units tables).</p>
-<p><strong>Units &harr; Operations</strong>: Operations databases list participating units by name.</p>
-<p><strong>NSSC &harr; Reprisals &harr; GTD</strong>: Linkable via date + location for triangulation and inter-coder reliability studies.</p>
-</section>
-
-<section id="citation">
-<h2>Citation</h2>
-<p>If you use these data in academic work, please cite the repository and the associated publication. Contact the author regarding permissions for use and redistribution.</p>
-</section>
-
-</main>
-</div>
-<footer>&copy; Ami Pedahzur, University of Haifa. Published via GitHub Pages.</footer>
-
-<script>
-const DS=[
-{id:"units-all",name:"Units_March_2026_1_all.csv",theme:"units",fmt:"CSV",n:234,period:"1920–2026",size:"111 KB",
-summary:"Most comprehensive units database with all identified Israeli SOF and elite units across all eras.",
-methodology:"Curated in Airtable from archival military sources, organizational histories, and secondary literature. Each record represents one identified unit with affiliation data.",
-variables:"Unit, Affiliation, Audio-video",
-analyses:"Descriptive frequency counts by affiliation; network analysis of organizational affiliations (igraph/networkx); temporal distribution of unit creation.",
-questions:["How many SOF units existed per era?","Which organizational affiliations cluster together?"],
-snippet:"pd.read_csv('Units_March_2026_1_all.csv')"},
-
-{id:"units-lineage",name:"Units_March_20262.csv",theme:"units",fmt:"CSV",n:230,period:"1920–2026",size:"20 KB",
-summary:"Units database with organizational lineage tracking: predecessor/successor relationships and year established.",
-methodology:"Same Airtable source. Predecessor/successor coded by manual archival research into unit histories, reorganizations, and name changes.",
-variables:"Unit, Year Established, Affiliation, Predecessor, Successor",
-analyses:"Directed lineage network analysis (genealogy graph); survival analysis of unit lifespans; temporal clustering of establishment dates.",
-questions:["Which units spawned the most successors?","What is the typical lifespan of a SOF unit?"],
-snippet:"pd.read_csv('Units_March_20262.csv')"},
-
-{id:"units-194",name:"UNITSN_194.csv",theme:"units",fmt:"CSV",n:196,period:"1920–2026",size:"98 KB",
-summary:"Bilingual (English/Hebrew) units database with branch, command, and role classifications.",
-methodology:"Airtable export with Hebrew-language notes. Role classification based on published military doctrine and organizational charts.",
-variables:"Name, Notes (Hebrew), Predecessor, Successor, Affiliation, Year Established, Year Disbanded, Branch, Command, Role, References",
-analyses:"Cross-tabulations of Role × Branch; chi-square tests for association; Multiple Correspondence Analysis (MCA) for categorical structure.",
-questions:["Is there an association between branch and unit role?","How does the role distribution change over time?"],
-snippet:"pd.read_csv('UNITSN_194.csv', encoding='utf-8')"},
-
-{id:"units-longevity",name:"UNITSLongevityN_90.csv",theme:"units",fmt:"CSV",n:90,period:"1920–2026",size:"5 KB",
-summary:"Standardized longevity metrics for 90 SOF units. Core analytical dataset for survival studies.",
-methodology:"Subset of fully documented units with confirmed formation and dissolution dates. Standardized longevity computed relative to era norms. Fate coded as merged/demised/expanded. Status: Conventional/Semi-Professional/Ad-Hoc/Reserve. Entrepreneur: none/founder/transformative.",
-variables:"ID, Formed, Dissolved, Overall Longevity, Standardized Longevity, Fate, Size, Status, Entrepreneur",
-analyses:"Cox proportional hazards models; Kaplan-Meier survival curves by Status; OLS regression on Standardized Longevity; logistic regression predicting Fate; factorial ANOVA (Status × Entrepreneur).",
-questions:["Does entrepreneurial leadership predict unit longevity?","Which organizational status category has highest survival?"],
-snippet:"pd.read_csv('UNITSLongevityN_90.csv')"},
-
-{id:"units-grid",name:"UNITS-Grid view.csv",theme:"units",fmt:"CSV",n:168,period:"1920–2026",size:"72 KB",
-summary:"Airtable grid-view export with bilingual data and status classification (Conventional/Elite).",
-methodology:"Direct Airtable grid export. Status classification based on mission profiles and organizational designation.",
-variables:"ID, Name, Notes (Hebrew), Status, Year Established, Year Disbanded, Individuals",
-analyses:"Bipartite unit–individual network analysis; two-mode to one-mode projection; status comparison statistics.",
-questions:["Which individuals bridge multiple elite units?","What is the conventional-to-elite ratio over time?"],
-snippet:"pd.read_csv('UNITS-Grid view.csv', encoding='utf-8')"},
-
-{id:"units-glossary",name:"Units Glossary-Grid.csv",theme:"units",fmt:"CSV",n:196,period:"All",size:"98 KB",
-summary:"Reference glossary mapping English unit names to Hebrew equivalents with associated individuals.",
-methodology:"Lookup/reference table for joining Hebrew-language sources to English-language datasets.",
-variables:"Unit1, UNIT - HEBREW, Individuals, Predecessor",
-analyses:"Use as join key for cross-referencing Hebrew archival data with English-language tables.",
-questions:["How do Hebrew unit names map to English equivalents?"],
-snippet:"pd.read_csv('Units Glossary-Grid.csv', encoding='utf-8')"},
-
-{id:"prestate",name:"prestate_units.csv",theme:"units",fmt:"CSV",n:36,period:"1920–1948",size:"2 KB",
-summary:"Pre-state (pre-1948) special operations units from the Haganah, Palmach, and British Army era.",
-methodology:"Compiled from published histories of pre-state paramilitary organizations. Role coded into 5 categories: Preventive/Clandestine/Commando/Intelligence/Reconnaissance.",
-variables:"Name, Notes (year formed), Attachments (year disbanded), Longevity, Organization, Location, Role",
-analyses:"Descriptive statistics; Fisher’s exact tests (small N); role distribution across organizations.",
-questions:["What was the predominant role type in pre-state units?","Did Palmach vs. Haganah differ in role composition?"],
-snippet:"pd.read_csv('prestate_units.csv')"},
-
-{id:"regional",name:"regional_defensive.csv",theme:"units",fmt:"CSV",n:38,period:"1948–1960s",size:"3 KB",
-summary:"Regional defensive and reconnaissance units with geographic coordinates for spatial analysis.",
-methodology:"Units coded with lat/lon coordinates from known base locations. Regional Command assignment from IDF organizational records.",
-variables:"Name, Notes, Location, Latitude, Longitude, Regional Command, Affiliation, Predecessor",
-analyses:"GIS/spatial analyses: point pattern analysis, kernel density estimation, spatial autocorrelation (Moran’s I) by regional command; choropleth mapping.",
-questions:["Were reconnaissance units spatially clustered near borders?","How does unit density vary by regional command?"],
-snippet:"pd.read_csv('regional_defensive.csv')"},
-
-{id:"idf-individuals",name:"IDF_Individuals_April_2026.xlsx",theme:"individuals",fmt:"XLSX",n:null,period:"1948–2026",size:"26 KB",
-summary:"Most recent database of IDF individuals associated with special operations forces (April 2026 update).",
-methodology:"Compiled from published biographies, unit histories, and official IDF records. Updated April 2026.",
-variables:"(Excel format — download to inspect full field list)",
-analyses:"Personnel demographics; career path analysis; cohort studies by entry decade.",
-questions:["What career trajectories characterize SOF personnel?","How has the demographic profile changed over time?"],
-snippet:"pd.read_excel('IDF_Individuals_April_2026.xlsx')"},
-
-{id:"individuals-global",name:"individuals_global.csv",theme:"individuals",fmt:"CSV",n:121,period:"1900–2020",size:"22 KB",
-summary:"Global reference list of notable individuals relevant to special operations research, with birth/death dates and Wikipedia links.",
-methodology:"Curated reference list from secondary sources and biographical dictionaries. Wikipedia URLs provided for verification.",
-variables:"Name, Born, Died, Link (Wikipedia URL)",
-analyses:"Cohort/generation analyses; life-span distribution; comparative demographics of SOF leaders globally.",
-questions:["What generation patterns emerge among global SOF figures?","Is there a characteristic lifespan pattern?"],
-snippet:"pd.read_csv('individuals_global.csv')"},
-
-{id:"individuals-glossary",name:"individuals_glossary.csv",theme:"individuals",fmt:"CSV",n:87,period:"1920–2026",size:"6 KB",
-summary:"Glossary of individuals associated with Israeli SOF units, including roles, associates, and rival relationships.",
-methodology:"Compiled from unit histories and biographical sources. Associate/rival ties coded from documented interpersonal dynamics in published accounts.",
-variables:"Name, Born, Died, Units, Roles, Associates, Rivals",
-analyses:"Social network analysis (ego networks, centrality measures); unit-affiliation bipartite graphs; two-mode to one-mode projections; clique detection.",
-questions:["Who are the most central figures bridging units?","Do rivalry networks predict organizational splits?"],
-snippet:"pd.read_csv('individuals_glossary.csv')"},
-
-{id:"attrition",name:"attrition_operations.csv",theme:"operations",fmt:"CSV",n:73,period:"1967–1970",size:"9 KB",
-summary:"Military operations during the War of Attrition period, with participating units, branch, scale, and location.",
-methodology:"Coded from IDF operational histories and published accounts of the War of Attrition. Scale classified as Small/Medium/Large based on personnel commitment.",
-variables:"DATE, NAME, Number of Units, Units, Branch (Land/Navy), SCALE (Small/Medium/Large), Location",
-analyses:"Event counts over time; ordinal regression on scale; Branch × Scale contingency tests; temporal clustering of operations.",
-questions:["Did operations escalate in scale over the period?","What was the land-to-naval operation ratio?"],
-snippet:"pd.read_csv('attrition_operations.csv')"},
-
-{id:"palyam",name:"palyam_operations1939-1948.csv",theme:"operations",fmt:"CSV",n:26,period:"1939–1948",size:"2 KB",
-summary:"Palyam (naval commando) operations from 1939 to 1948, with coordinates for mapping.",
-methodology:"Compiled from Palyam veterans’ association records and published operational histories.",
-variables:"Title, Operation, Details, Date, Location, Coordinates",
-analyses:"Geospatial mapping (folium/leaflet); temporal event plots; descriptive case comparisons.",
-questions:["What was the geographic range of Palyam operations?","How did operation frequency change as independence approached?"],
-snippet:"pd.read_csv('palyam_operations1939-1948.csv')"},
-
-{id:"sayeret",name:"sayeret_matkal_birds.csv",theme:"operations",fmt:"CSV",n:7,period:"1960s",size:"2 KB",
-summary:"Early Sayeret Matkal intelligence-gathering operations (code-named ‘birds’), primarily against Egyptian Air Force targets.",
-methodology:"Documented from declassified operational records and published unit histories.",
-variables:"Name, Notes, Date, Unit, Location",
-analyses:"Descriptive case-study table; qualitative comparative analysis (QCA) given very small N.",
-questions:["What patterns characterized early deep-reconnaissance missions?"],
-snippet:"pd.read_csv('sayeret_matkal_birds.csv')"},
-
-{id:"reprisals",name:"reprisals.csv",theme:"operations",fmt:"CSV",n:967,period:"1953–1970s",size:"47 KB",
-summary:"Largest dataset: reprisal and military operations from 1953 onward with operation names, dates, and locations.",
-methodology:"Coded from newspaper reports, IDF announcements, and published operational histories. Each record is one operation event.",
-variables:"Date, Date - Translated, Operation Name, Location, Place",
-analyses:"Time-series analysis (event counts); seasonality tests; geospatial clustering; interrupted time-series (before/after policy changes); escalation models.",
-questions:["Did reprisal frequency follow cyclical patterns?","How did the geographic focus shift over time?"],
-snippet:"pd.read_csv('reprisals.csv')"},
-
-{id:"border-wars",name:"Border Wars 1952-1956.xlsx",theme:"operations",fmt:"XLSX",n:null,period:"1952–1956",size:"529 KB",
-summary:"Border war operations and incidents from 1952 to 1956.",
-methodology:"Compiled from IDF Southern and Central Command records and published border-incident studies.",
-variables:"(Excel format — download to inspect)",
-analyses:"Interrupted time-series; escalation/retaliation sequence analysis; event-count models.",
-questions:["Did border incidents follow a tit-for-tat escalation pattern?"],
-snippet:"pd.read_excel('Border Wars 1952-1956.xlsx')"},
-
-{id:"nssc-terrorism",name:"NSSC_Terrorism_Israel_1948-2005.csv",theme:"terrorism",fmt:"CSV",n:3337,period:"1948–2005",size:"1.6 MB",
-summary:"National Security Studies Center terrorism database: 3,337 attacks coded from Israeli newspaper sources (1948–2005).",
-methodology:"Systematic newspaper coding (Haaretz and others). Each event coded for location (16 statistical regions), weapon/tactic (20+ categories), perpetrator demographics, victim details, and state response. See NSSC_Codebook for full variable dictionary.",
-variables:"Year, Date, Region, Weapon, Terrorist demographics (gender/age/religion/education/political orientation), Victim demographics, Target type, State Response",
-analyses:"Poisson/negative-binomial regression on attack counts; logistic regression on perpetrator capture; multinomial logit on tactic choice; spatial analysis by statistical region; victim-level demographic analyses; time-series of attack frequency.",
-questions:["What predicts tactic selection?","How did attack frequency vary across regions and decades?","Is perpetrator education associated with mission outcome?"],
-snippet:"pd.read_csv('NSSC - Terrorist attacks in Isr-Grid view.csv', encoding='utf-8')"},
-
-{id:"nssc-complete",name:"NSSC_Terrorism_Israel_1948-2005_Complete.xlsx",theme:"terrorism",fmt:"XLSX",n:3337,period:"1948–2005",size:"6.9 MB",
-summary:"Complete NSSC terrorism dataset in Excel format with full Airtable metadata and formatting.",
-methodology:"Same as NSSC CSV version but preserves Airtable field types, lookups, and formatting.",
-variables:"Same as NSSC CSV (see codebook)",
-analyses:"Same analytical techniques as CSV version; Excel format enables pivot tables for exploratory analysis.",
-questions:["Same as NSSC CSV"],
-snippet:"pd.read_excel('NSSC_Terrorism_Israel_1948-2005_Complete.xlsx')"},
-
-{id:"gtd-israel",name:"Israel_GTD_2026_Revised.xlsx",theme:"terrorism",fmt:"XLSX",n:null,period:"1970–2021",size:"983 KB",
-summary:"Israel subset of the Global Terrorism Database (GTD), extracted 2026. Revised version with corrections.",
-methodology:"Extracted from GTD v2026. GTD methodology: systematic coding from open media sources using standardized inclusion criteria (political motive, violence/threat, sub-national actors). See GTD_2026_Codebook.pdf.",
-variables:"See GTD codebook (135+ variables including attack type, weapon, target, casualties, perpetrator group)",
-analyses:"Cross-validation with NSSC data; inter-coder reliability analysis; multinomial models on attack type; casualty severity models.",
-questions:["How does GTD coding compare with NSSC for the same events?","What attack types predominate in different decades?"],
-snippet:"pd.read_excel('Israel_GTD_2026_Revised.xlsx')"},
-
-{id:"mandate",name:"Mandate_Events_1920_1948.xlsx",theme:"terrorism",fmt:"XLSX",n:null,period:"1920–1948",size:"89 KB",
-summary:"Events during the British Mandate period. Covered by dedicated methodological appendix.",
-methodology:"See Methodological_Appendix_Mandate_Dataset.docx for full description of sources, coding criteria, and limitations.",
-variables:"(Excel format — see methodological appendix)",
-analyses:"Event history analysis; temporal patterns of political violence during Mandate; escalation modeling toward 1948.",
-questions:["How did violence patterns evolve from 1920 riots through 1936–1939 revolt to 1948?"],
-snippet:"pd.read_excel('Mandate_Events_1920_1948.xlsx')"},
-
-{id:"iaf",name:"IAF_1973_Losses.csv",theme:"terrorism",fmt:"CSV",n:108,period:"1973",size:"18 KB",
-summary:"108 Israeli Air Force aircraft losses during the 1973 Yom Kippur War. Each record is one loss event.",
-methodology:"Compiled from IAF squadron records, published loss lists, and crew fate documentation. Front coded as Syria/Egypt; Weapon coded as SA-6/SA-2/SAM/AAA/MiG/accident.",
-variables:"ID, Date, Aircraft type, Front (Syria/Egypt), Weapon, Type 2, Name1, Name2, Squadron, Location, Description, Fate (KIA/OK/POW/MIA)",
-analyses:"Categorical/logistic regression (Fate ~ Weapon + Front); contingency tables (aircraft type vs. weapon); survival-of-crew analysis; front-specific loss rates.",
-questions:["Were SA-6 losses more lethal than AAA?","Did loss patterns differ between the Egyptian and Syrian fronts?"],
-snippet:"pd.read_csv('IAF_1973_Losses.csv')"},
-
-{id:"nssc-codebook",name:"NSSC_Codebook.csv / .xlsx",theme:"codebooks",fmt:"CSV",n:null,period:"N/A",size:"23 KB",
-summary:"Full variable dictionary for the NSSC terrorism database. Lists all field names, value categories, and coding instructions.",
-methodology:"Reference document — describes the coding scheme used by NSSC researchers.",
-variables:"Variable name, Description/Categories for each NSSC field",
-analyses:"Use as reference when analyzing NSSC data files.",
-questions:[],
-snippet:"pd.read_csv('NSSC_Codebook.csv')"},
-
-{id:"gtd-codebook",name:"GTD_2026_Codebook.pdf",theme:"codebooks",fmt:"PDF",n:null,period:"N/A",size:"655 KB",
-summary:"Official Global Terrorism Database v2026 codebook with full variable definitions and inclusion criteria.",
-methodology:"Published by START (National Consortium for the Study of Terrorism and Responses to Terrorism).",
-variables:"135+ GTD variables fully documented",
-analyses:"Reference for GTD-based analyses.",
-questions:[],
-snippet:"# Open PDF externally"},
-
-{id:"mandate-method",name:"Methodological_Appendix_Mandate_Dataset.docx",theme:"codebooks",fmt:"DOCX",n:null,period:"N/A",size:"17 KB",
-summary:"Methodological appendix describing sources, coding criteria, and limitations of the Mandate Events dataset.",
-methodology:"Details the archival sources (British records, Hebrew press, secondary histories) and event inclusion/exclusion criteria.",
-variables:"Describes all coded fields in Mandate_Events_1920_1948.xlsx",
-analyses:"Reference for Mandate dataset analyses.",
-questions:[],
-snippet:"# Open DOCX externally"}
-];
-
-const themes={units:"Units & Organizations",individuals:"Individuals",operations:"Operations",terrorism:"Terrorism & Conflict",codebooks:"Codebooks & Methods"};
-const themeOrder=["units","individuals","operations","terrorism","codebooks"];
-
-function render(){
-const container=document.getElementById("datasets");
-const toc=document.getElementById("toc");
-const filters=document.getElementById("filters");
-
-themeOrder.forEach(t=>{
-const chip=document.createElement("span");
-chip.className="chip";chip.dataset.theme=t;chip.textContent=themes[t];
-chip.onclick=()=>{document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));chip.classList.toggle("active");filterCards()};
-filters.appendChild(chip)});
-
-themeOrder.forEach(t=>{
-const h=document.createElement("h4");h.textContent=themes[t];h.style.cssText="margin-top:.8rem;font-size:.78rem;text-transform:uppercase;opacity:.5";
-toc.appendChild(h);
-DS.filter(d=>d.theme===t).forEach(d=>{
-const a=document.createElement("a");a.href="#"+d.id;a.textContent=d.name.replace(/_/g," ").replace(/\.(csv|xlsx|pdf|docx)/i,"");
-toc.appendChild(a)})});
-
-themeOrder.forEach(t=>{
-const sec=document.createElement("div");sec.className="theme-group";
-const h=document.createElement("h2");h.textContent=themes[t];h.style.cssText="font-family:Georgia,serif;font-size:1.2rem;margin:1.5rem 0 .5rem;border-bottom:1px solid var(--border);padding-bottom:.2rem";
-sec.appendChild(h);
-DS.filter(d=>d.theme===t).forEach(d=>{
-const art=document.createElement("article");art.className="dataset";art.id=d.id;art.dataset.theme=d.theme;
-const det=document.createElement("details");
-const sum=document.createElement("summary");
-const ext=d.fmt.toLowerCase();
-sum.innerHTML=`${d.name} <span class="badge badge-${ext}">${d.fmt}</span> <span class="meta">${d.n?d.n+" records · ":""}${d.period} · ${d.size}</span>`;
-det.appendChild(sum);
-const body=document.createElement("div");body.className="body";
-let html=`<p>${d.summary}</p>`;
-html+=`<h4>Methodology</h4><p>${d.methodology}</p>`;
-html+=`<h4>Variables</h4><p><code>${d.variables}</code></p>`;
-html+=`<h4>Suggested Statistical Analyses</h4><p>${d.analyses}</p>`;
-if(d.questions&&d.questions.length){html+=`<h4>Example Research Questions</h4><ul>${d.questions.map(q=>"<li>"+q+"</li>").join("")}</ul>`}
-html+=`<h4>Code Snippet</h4><pre>${d.snippet}</pre>`;
-html+=`<a class="dl-btn" href="./${encodeURIComponent(d.name)}" download>Download ${d.fmt}</a>`;
-body.innerHTML=html;det.appendChild(body);art.appendChild(det);sec.appendChild(art)});
-container.appendChild(sec)})
-}
-
-function filterCards(){
-const q=document.getElementById("search").value.toLowerCase();
-const activeChip=document.querySelector(".chip.active");
-const theme=activeChip?activeChip.dataset.theme:null;
-document.querySelectorAll("article.dataset").forEach(a=>{
-const matchText=!q||a.textContent.toLowerCase().includes(q);
-const matchTheme=!theme||a.dataset.theme===theme;
-a.style.display=(matchText&&matchTheme)?"":"none"})
-}
-document.getElementById("search").addEventListener("input",filterCards);
-render();
-</script>
+<div id="drill-card" hidden></div>
+<script src="js/utils.js"></script>
+<script src="js/data.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
