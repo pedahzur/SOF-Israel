@@ -20,6 +20,7 @@
   --green: #008a6d;
   --gold: #b07a10;
   --neg: #c22f4e;           /* semantic negative — gaps/missing only */
+  --neg-text: #a5233e;      /* AA text contrast on paper-hi */
   --serif: "et-book", "Iowan Old Style", Palatino, "Palatino Linotype", "Book Antiqua", "David", "Times New Roman", Georgia, serif;
   --sans: "et-book", "Iowan Old Style", Palatino, "Palatino Linotype", "Book Antiqua", "David", "Times New Roman", Georgia, serif;
   --mono: Menlo, Consolas, "SF Mono", "Liberation Mono", "DejaVu Sans Mono", ui-monospace, monospace;
@@ -299,6 +300,8 @@ nav#toc {
   border-right: 1px solid var(--line-lo);
   padding: 26px 18px 26px 0; font-size: 13px;
 }
+.toc-toggle { display: none; }
+.toc-links { display: block; }
 nav#toc .toc-h {
   font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
   text-transform: uppercase; color: var(--ink-lo); margin-bottom: 10px;
@@ -391,6 +394,7 @@ article.dataset[hidden] { display: none; }
 .ds-name {
   font-family: var(--serif); font-weight: 700; font-size: 16.5px;
   color: var(--ink); line-height: 1.4; min-width: 0;
+  overflow-wrap: anywhere;
 }
 .ds-name .ds-title-sub { font-weight: 400; font-size: 13px; color: var(--ink-md); display: block; }
 .ds-meta {
@@ -405,6 +409,8 @@ article.dataset[hidden] { display: none; }
 }
 .ds-meta .rec { color: var(--ink-md); }
 .ds-meta .rec.unknown { color: var(--neg); }  /* semantic red: unknown/gap */
+.ds-meta .rec.draft { color: var(--copper); }
+.ds-meta .rec.restricted { color: var(--neg-text); }
 .ds-chev {
   display: inline-block; margin-left: 10px; color: var(--ink-lo);
   font-size: 11px; transition: transform .25s var(--ease);
@@ -424,6 +430,13 @@ article.dataset.open .ds-body { display: block; }
 }
 .ds-body h4:first-child { margin-top: 6px; }
 .ds-body p { font-size: 14.5px; color: var(--ink-md); margin-bottom: 8px; max-width: 66em; }
+.ds-body .ds-status {
+  border-left: 3px solid var(--ink-lo);
+  padding: 7px 10px; margin: 6px 0 14px; max-width: 66em;
+  background: var(--paper-hi);
+}
+.ds-body .ds-status.draft { border-left-color: var(--copper); color: #77530b; }
+.ds-body .ds-status.restricted { border-left-color: var(--neg); color: var(--neg-text); }
 .ds-body ul { font-size: 14.5px; color: var(--ink-md); padding-left: 1.2em; margin-bottom: 8px; }
 .ds-body .vars {
   font-family: var(--mono); font-size: 12px; line-height: 1.7;
@@ -470,13 +483,15 @@ article.dataset.open .ds-body { display: block; }
 .preview-err { font-family: var(--mono); font-size: 11px; color: var(--neg); margin-top: 8px; }
 
 /* ── Quick start code blocks ── */
-.qs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
-@media (max-width: 760px) { .qs-grid { grid-template-columns: 1fr; } }
+.qs-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; min-width: 0; }
+.qs-block { min-width: 0; }
+@media (max-width: 760px) { .qs-grid { grid-template-columns: minmax(0, 1fr); } }
 .qs-block pre {
   font-family: var(--mono); font-size: 12.5px; line-height: 1.7;
   background: var(--paper-hi); border: 1px solid var(--line-lo);
   border-top: 2px solid var(--ink);
   padding: 12px 16px; overflow-x: auto; color: var(--ink);
+  width: 100%; max-width: 100%;
 }
 .qs-block .qs-tag {
   font-family: var(--mono); font-size: 9.5px; letter-spacing: .2em;
@@ -527,6 +542,20 @@ footer.colophon a { color: var(--ink-md); }
     position: static; max-height: none; border-right: 0;
     border-bottom: 1px solid var(--line); padding: 18px 0;
   }
+  .toc-toggle {
+    display: flex; width: 100%; align-items: center; justify-content: space-between;
+    border: 1px solid var(--line); border-radius: 4px; background: var(--paper-hi);
+    color: var(--ink); padding: 9px 12px; cursor: pointer;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .toc-toggle::after { content: "▾"; color: var(--ink-lo); transition: transform .2s var(--ease); }
+  nav#toc.open .toc-toggle::after { transform: rotate(180deg); }
+  .toc-links {
+    display: none; max-height: 70vh; overflow-y: auto;
+    padding: 10px 4px 2px;
+  }
+  nav#toc.open .toc-links { display: block; }
   .masthead { padding: 7vh 20px 36px; }
   footer.colophon { padding: 22px 20px 48px; }
   .ds-head { grid-template-columns: 10px minmax(0,1fr); }

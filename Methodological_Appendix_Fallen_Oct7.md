@@ -1,11 +1,13 @@
 ---
 title: "Appendix — The Fallen of October 7–8: Data and Method"
 type: manuscript-appendix
-status: draft-v1
-updated: 2026-06-08
+status: draft-verification-pending
+updated: 2026-07-25
 ---
 
 # Appendix — The Fallen of October 7–8: Data and Method
+
+> **Draft — verification pending.** The underlying record-level dataset is not included in this public release, and the checks marked `[#verify]` remain unresolved. Do not cite the figures below as final.
 
 The prologue rests on one ratio: sixty special operators among the three hundred sixty-nine security personnel who died in the fighting of October 7 and 8, 2023. This appendix documents the dataset behind that ratio.
 
