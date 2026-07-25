@@ -1,0 +1,11 @@
+# Third-party GTD materials are intentionally excluded from the deployable branch.
+/GTD_2026_Codebook.pdf
+/GTD_2026_globalterrorismdb_2021Jan-June_1222dist.xlsx
+/Israel_GTD_2026_Revised.xlsx
+
+# Local-only restricted-data staging.
+/restricted-data/
+
+# Local Python test artifacts.
+__pycache__/
+*.py[cod]

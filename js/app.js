@@ -83,21 +83,40 @@
   (function toc() {
     const nav = $("#toc");
     if (!nav) return;
-    nav.innerHTML = '<p class="toc-h">Register</p>';
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "toc-toggle";
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-controls", "toc-links");
+    toggle.textContent = `Browse datasets (${R.datasets.length})`;
+    const links = document.createElement("div");
+    links.id = "toc-links";
+    links.className = "toc-links";
+    links.innerHTML = '<p class="toc-h">Register</p>';
+    nav.replaceChildren(toggle, links);
     R.themeOrder.forEach(t => {
       const theme = R.themes[t];
       const h = document.createElement("p");
       h.className = "toc-theme";
       h.textContent = theme.label;
-      nav.appendChild(h);
+      links.appendChild(h);
       R.datasets.filter(d => d.theme === t).forEach(d => {
         const a = document.createElement("a");
         a.href = "#" + d.id;
         a.dataset.for = d.id;
         a.style.setProperty("--dot", theme.chip);
         appendMixedLang(a, tocLabel(d.title));
-        nav.appendChild(a);
+        links.appendChild(a);
       });
+    });
+    toggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+    links.addEventListener("click", event => {
+      if (!event.target.closest("a")) return;
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
     });
   })();
 
@@ -234,9 +253,11 @@
         head.className = "ds-head";
         head.setAttribute("aria-expanded", "false");
         head.setAttribute("aria-controls", d.id + "-body");
-        const rec = d.n != null
-          ? `<span class="rec">${d.n.toLocaleString("en-US")} records</span>`
-          : `<span class="rec unknown">download to inspect</span>`;
+        const rec = d.recordLabel
+          ? `<span class="rec ${esc(d.statusTone || "unknown")}">${esc(d.recordLabel)}</span>`
+          : d.n != null
+            ? `<span class="rec">${d.n.toLocaleString("en-US")} records</span>`
+            : `<span class="rec unknown">count unavailable</span>`;
         head.innerHTML =
           `<span class="ds-dot"></span>` +
           `<span class="ds-name">${escHe(d.title)}</span>` +
@@ -250,7 +271,10 @@
         body.id = d.id + "-body";
         body.setAttribute("role", "region");
         body.setAttribute("aria-label", d.title);
-        let html = `<h4>Summary</h4><p>${escHe(d.summary)}</p>`;
+        let html = d.status
+          ? `<p class="ds-status ${esc(d.statusTone || "")}"><strong>${esc(d.status)}</strong></p>`
+          : "";
+        html += `<h4>Summary</h4><p>${escHe(d.summary)}</p>`;
         html += `<h4>Methodology</h4><p>${esc(d.methodology)}</p>`;
         html += `<h4>Variables</h4><div class="vars">${esc(d.variables)}</div>`;
         html += `<h4>Suggested Statistical Analyses</h4><p>${esc(d.analyses)}</p>`;
