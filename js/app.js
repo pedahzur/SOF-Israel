@@ -79,7 +79,7 @@
     io.observe(node);
   }
 
-  /* ── Sticky TOC ──────────────────────────── */
+  /* ── Sticky TOC ──────────────────────────────────────────── */
   (function toc() {
     const nav = $("#toc");
     if (!nav) return;
